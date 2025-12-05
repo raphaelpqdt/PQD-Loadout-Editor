@@ -1,0 +1,321 @@
+================================================================================
+                    PQD LOADOUT EDITOR - LICENSE TERMS
+================================================================================
+
+                           by Raphael_PQD
+                        (PQDT_Raphael / Raphael PQD)
+
+
+================================================================================
+                             OVERVIEW
+================================================================================
+
+PQD Loadout Editor is a comprehensive loadout customization and management 
+system for Arma Reforger that allows players to save, edit and use custom 
+loadouts directly from the deploy/respawn menu.
+
+KEY FEATURES:
+
+- Save custom loadouts with weapons, equipment and items
+- Edit existing loadouts at any time
+- View 3D preview of character with equipped loadout
+- Loadout slots appear directly in the DEPLOY/RESPAWN MENU
+- Spawn/respawn already equipped with your saved loadout
+- Support for multiple factions (US, USSR, FIA, CIV)
+- Intuitive interface
+- Data persistence between sessions
+
+
+================================================================================
+                          HOW IT WORKS
+================================================================================
+
+1. LOADOUT SLOT SYSTEM
+   - The mod injects custom loadout slots into the game's respawn system
+   - Each faction has its own loadout slots
+   - Number of slots configurable by server administrator
+
+2. DEPLOY MENU INTEGRATION
+   - Saved loadouts automatically appear in the deploy/respawn menu
+   - When selecting a PQD slot, the player spawns with the configured loadout
+   - Real-time preview shows how the character will look equipped
+   - Compatible with the vanilla faction system
+
+3. LOADOUT EDITOR
+   - Access the editor through the arsenal menu or configurable shortcut
+   - Select primary weapons, secondary weapons and equipment
+   - Customize weapon attachments and accessories
+   - Manage inventory and consumable items
+   - Save to any of the 5 available slots
+
+4. DATA PERSISTENCE
+   - Loadouts are saved in JSON files
+   - Data persists between game sessions
+   - Each faction maintains separate loadouts
+   - Robust serialization/deserialization system
+
+
+================================================================================
+                    ⚠️ IMPORTANT NOTICE ⚠️
+================================================================================
+
+MODIFICATIONS, FORKS AND REUPLOADS OF THIS MOD ARE ALLOWED **ONLY** UNDER THE
+FOLLOWING CONDITIONS:
+
+1. PQD BRANDING PROTECTION
+   - No string containing "PQD" in the code or in the mod’s interface (UI)
+     may be altered, obfuscated or removed.
+   - This includes, but is not limited to:
+       • "[PQD] Slot X"
+       • "PQD Loadout Editor"
+       • Any other labels, prefixes or names containing "PQD".
+   - You may add your own names/credits in addition to the existing PQD 
+     branding, but never replace or hide it.
+
+2. ATTRIBUTION & CREDITS (MANDATORY FOR ALL REUPLOADS / FORKS)
+   Any reupload, fork, modification or publication of this mod (including 
+   Workshop items, GitHub repos, other mod platforms, etc.) MUST clearly 
+   include:
+
+   - Credits to the original author:
+       • "Original mod by PQDT_Raphael / Raphael PQD"
+   - Link to the original Arma Reforger Workshop page of the mod:
+       • Workshop: https://reforger.armaplatform.com/workshop/67061DDD56D88ED5-PQDLoadoutEditor
+   - Link to the original GitHub repository:
+       • GitHub: https://github.com/raphaelpqdt/PQD-Loadout-Editor
+
+   These credits and links must  visible in the mod reupload page
+   
+3. MONETIZATION RULES EXTEND TO ALL FORKS
+   - The monetization policy defined in this license applies **equally** to:
+       • The original mod
+       • Any forks
+       • Any modified versions
+       • Any reuploads on any platform
+   - Any form of monetization or donation related to forks/reuploads MUST 
+     have **written authorization** from the original creator:
+       • PQDT_Raphael / Raphael PQD
+
+This mod is provided "as is" without warranty of any kind, express or implied.
+The author is not responsible for any damages or issues arising from the use
+of this mod or any forks/reuploads based on it. 
+
+
+================================================================================
+                       MONETIZATION POLICY
+================================================================================
+
+UNAUTHORIZED MONETIZATION IS STRICTLY PROHIBITED.
+
+This policy applies to:
+- The original PQD Loadout Editor mod
+- All forks, modified versions and reuploads based on this mod
+
+Rules for Server Usage:
+
+1. SERVERS WITH AUTHORIZED MONETIZATION BY BOHEMIA INTERACTIVE
+
+   → Must request WRITTEN PERMISSION from the original author
+   → Contact: PQDT_Raphael at discord.gg/exilados
+   → Permission decision made on case-by-case basis
+   → This applies even if you are using a fork/modified version of the mod
+
+2. SERVERS RECEIVING DONATIONS (even if voluntary)
+
+   → Can use the mod FREELY without permission
+
+3. NON-PROFIT SERVERS (no monetization, no donations)
+
+   → Can use the mod FREELY without permission
+   → Includes community servers, clan servers, practice servers
+  
+================================================================================
+                     HOW TO REQUEST PERMISSION
+================================================================================
+
+If your server uses monetization or donations:
+
+1. Join Discord server: discord.gg/exilados
+2. Open a support ticket
+3. Provide:
+   - Server name
+   - Monetization model 
+   - Donation system details (if applicable)
+4. Wait for written authorization
+
+NOTE: The author does not accept Discord direct messages. Use the ticket
+system only. Written authorization must come from the original creator
+(PQDT_Raphael / Raphael PQD).
+
+
+================================================================================
+                         APPROVED SERVERS
+================================================================================
+
+The following servers have been granted permission to use this mod:
+
+✅ Exilados Brasil - King Of The Hill
+✅ Exilados Brasil - Morro do Exilio
+✅ Projeto Amazônia
+
+(Additional approved servers will be listed here after authorization)
+
+
+================================================================================
+                    DISTRIBUTION & FORK POLICY
+================================================================================
+
+The following rules apply to the original mod AND to any forks, modified
+versions or reuploads:
+
+ALLOWED (WITH CONDITIONS):
+- ✅ Redistribution of modified versions is ALLOWED if:
+    • All "PQD" strings in code and UI remain unchanged and visible
+    • Proper credits are given to PQDT_Raphael / Raphael PQD
+    • Original Workshop link is included
+    • Original GitHub link is included
+    • This license (or a clearly linked copy of it) is included
+    • Monetization rules of this license are respected
+
+- ✅ Reuploading to other platforms (future Arma 4) is ALLOWED if:
+    • The above conditions are fully respected
+
+- ✅ Hosting source code on GitHub or other VCS platforms is ALLOWED if:
+    • The repository includes this license
+    • The README credits the original author and links to the original
+      Workshop and GitHub
+
+PROHIBITED:
+- ❌ Removing or altering any string containing "PQD" in code or interface
+- ❌ Claiming authorship or ownership of the original work
+- ❌ Changing the monetization rules to be more permissive than this license
+- ❌ Presenting a fork as if it were the original PQD mod
+
+
+================================================================================
+                    COMPLIANCE REQUIREMENTS
+================================================================================
+
+By using, modifying, forking, or reuploading this mod, you agree to comply
+with:
+
+1. Bohemia Interactive's Workshop Terms of Service
+   https://www.bohemia.net/community/licenses/bohemia-interactive-workshop-subscriber-agreement
+
+2. Arma Reforger End User License Agreement (EULA)
+   https://www.bohemia.net/community/licenses/arma-reforger-eula
+
+3. This mod's specific license terms stated above
+
+For more information about Workshop licenses and intellectual property:
+https://reforger.armaplatform.com/news/workshop-licenses-and-ip-faq
+
+
+================================================================================
+                           ENFORCEMENT
+================================================================================
+
+Servers, mods, forks or reuploads found to be in violation of these terms may:
+
+1. Be publicly listed as unauthorized
+2. Be reported to Bohemia Interactive (if applicable)
+3. Be subject to takedown requests on any platform where they are hosted
+
+The author reserves the right to:
+- Revoke permission at any time
+- Update these terms without prior notice
+- Take legal action against violations
+- Issue cease and desist notices
+
+
+================================================================================
+                           ATTRIBUTION
+================================================================================
+
+When using this mod (original or fork) on public servers or publishing it
+on any platform, you MUST:
+
+✅ Not claim ownership or authorship of the original work  
+✅ Clearly state in the description / readme:
+
+   "Original mod: PQD Loadout Editor  
+    Author: PQDT_Raphael / Raphael PQD  
+    Original Workshop link: https://reforger.armaplatform.com/workshop/67061DDD56D88ED5-PQDLoadoutEditor
+    Original GitHub link: https://github.com/raphaelpqdt/PQD-Loadout-Editor
+
+These lines must be easily visible to users 
+
+================================================================================
+                    TECHNICAL MODIFICATIONS
+================================================================================
+
+You may make modifications and forks, including:
+
+✅ Adjusting configuration files  
+✅ Changing the number of loadout slots  
+✅ Modifying faction settings  
+✅ Extending functionality, adding features or integrations  
+✅ Modifying UI text, **as long as you do NOT remove or alter any string
+   containing "PQD"**  
+
+You may:
+
+✅ Share modified versions and forks publicly, provided that:
+   - All rules from "IMPORTANT NOTICE", "DISTRIBUTION & FORK POLICY" and
+     "MONETIZATION POLICY" are respected
+   - PQD branding remains intact
+   - Credits and links are properly included
+   - This license (or a copy/link) is bundled with the fork
+
+You may NOT:
+
+❌ Remove, hide or alter the "PQD" name in any UI or code string  
+❌ Claim modifications as entirely your own work without crediting the original  
+❌ Sell or profit from modifications without written permission  
+❌ Change the license to something that removes the original author’s rights  
+❌ Create a fork that removes all visible reference to PQDT_Raphael / Raphael PQD
+
+
+================================================================================
+                       SUPPORT & CONTACT
+================================================================================
+
+For support, bug reports, or permission requests:
+
+- Discord: discord.gg/exilados (open a ticket)
+- Contact: PQDT_Raphael
+- DO NOT send Discord direct messages - they will not be read
+- Use the official ticket system for all inquiries
+
+Support includes:
+- Bug reports and fixes
+- Compatibility issues
+- Configuration questions
+- Permission requests for monetized servers
+- Clarifications about forks and reuploads
+
+
+================================================================================
+                           DISCLAIMER
+================================================================================
+
+By downloading, installing, using, modifying, forking or reuploading this mod,
+you acknowledge that you have read, understood, and agree to be bound by these
+license terms.
+
+If you do not agree to these terms, do not use this mod.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR ANY FORKS/REUPLOADS OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+USE AT YOUR OWN RISK.
+
+
+================================================================================
+                      END OF LICENSE
+================================================================================

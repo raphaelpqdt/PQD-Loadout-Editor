@@ -1,0 +1,20 @@
+ButtonWidgetClass {
+ Name "SlotHotspot"
+ Slot FrameWidgetSlot "{7F02D3D500000001}" {
+  SizeX 24
+  SizeY 24
+ }
+ Color 1 1 1 0
+ {
+  ImageWidgetClass "{7F02D3D500000003}" {
+   Name "HotspotIcon"
+   Slot OverlayWidgetSlot "{7F02D3D500000004}" {
+    HorizontalAlign 1
+    VerticalAlign 1
+   }
+   Color 0.2 0.8 1 0.9
+   Texture "{AABF2FA8204A0FB0}UI/Textures/HotspotContainer.edds"
+   Size 24 24
+  }
+ }
+}

@@ -1,0 +1,14 @@
+GenericEntity : "{54986385A6AF77B2}Prefabs/Props/Military/Arsenal/ArsenalBoxes/ArsenalBox_Base.et" {
+ coords 129.598 1 128.939
+}
+$grp GenericEntity : "{AD59EDEAA26CE792}Prefabs/Props/Military/Compositions/USSR/ArsenalBox_USSR.et" {
+ {
+  coords 123.252 1 128.921
+ }
+ {
+  coords 127.521 1 129.02
+ }
+}
+GenericEntity : "{FF27B5E7B51F45F0}Prefabs/Compositions/Misc/CustomEntities/InteractionPoints/ArsenalBox_US_NoAffiliation.et" {
+ coords 125.649 1 128.751
+}

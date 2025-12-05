@@ -1,0 +1,7 @@
+SCR_PlayerController {
+ ID "1A9BA6BEFA06E3B1"
+ components {
+  PQD_PlayerControllerComponent "{5F3A8C2B1D4E6789}" {
+  }
+ }
+}

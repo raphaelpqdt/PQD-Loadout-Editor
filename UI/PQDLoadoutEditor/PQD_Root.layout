@@ -1,0 +1,1047 @@
+FrameWidgetClass {
+ Name "rootFrame"
+ {
+  ImageWidgetClass "{675510AA01000001}" {
+   Name "BackgroundDim"
+   Slot FrameWidgetSlot "{675510AA01000002}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 0
+    OffsetRight 0
+    SizeY 0
+    OffsetBottom 0
+   }
+   "Z Order" 0
+   Color 0 0 0 0.75
+  }
+  ImageWidgetClass "{675510AA01000003}" {
+   Name "VignetteOverlay"
+   Slot FrameWidgetSlot "{675510AA01000004}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 0
+    OffsetRight 0
+    SizeY 0
+    OffsetBottom 0
+   }
+   "Z Order" 1
+   Color 0 0 0 1
+   Size 256 256
+   Mask "{0747752FEF37CCFA}UI/Textures/ScreenEffects/Suppression/supressionVignette9.edds"
+   "Transition width" 0.6
+   Progress 0.35
+  }
+  OverlayWidgetClass "{675510AA01000010}" {
+   Name "ItemPreviewContainer"
+   Slot FrameWidgetSlot "{675510AA01000011}" {
+    Anchor 0.35 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 0
+    OffsetRight 0
+    SizeY 0
+    OffsetBottom 0
+   }
+   "Z Order" 2
+   components {
+    PQD_PreviewUIComponent "{675510AA01000012}" {
+    }
+   }
+   {
+    ItemPreviewWidgetClass "{675510AA01000013}" {
+     Name "ItemPreview"
+     "Ignore Cursor" 1
+     Slot OverlayWidgetSlot "{675510AA01000014}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+     }
+     Format LDR_sRGB
+     "Use clear color" 1
+     "Blend mode" Blend
+    }
+    FrameWidgetClass "{675510AA01000015}" {
+     Name "HotspotContainer"
+     "Ignore Cursor" 0
+     Slot OverlayWidgetSlot "{675510AA01000016}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+     }
+     "Z Order" 5
+    }
+   }
+  }
+  OverlayWidgetClass "{675510AA01000020}" {
+   Name "LeftPanel"
+   Slot FrameWidgetSlot "{675510AA01000021}" {
+    Anchor 0 0 0 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 420
+    OffsetRight -420
+    SizeY 0
+    OffsetBottom 0
+   }
+   "Z Order" 10
+   {
+    ImageWidgetClass "{675510AA01000022}" {
+     Name "PanelBackground"
+     Slot OverlayWidgetSlot "{675510AA01000023}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+     }
+     Color 0.04 0.04 0.05 0.97
+    }
+    ImageWidgetClass "{675510AA01000024}" {
+     Name "PanelGradient"
+     Slot OverlayWidgetSlot "{675510AA01000025}" {
+      HorizontalAlign 2
+      VerticalAlign 3
+     }
+     "Z Order" 1
+     Color 0 0 0 0.5
+     Size 80 1080
+     Mask "{E12BB5C5BD00269E}UI/Textures/Common/gradientTexture_Dither_right_512.edds"
+     "Transition width" 1
+     Progress 1
+    }
+    ImageWidgetClass "{675510AA01000026}" {
+     Name "AccentLineTop"
+     Slot OverlayWidgetSlot "{675510AA01000027}" {
+      HorizontalAlign 3
+      VerticalAlign 0
+     }
+     "Z Order" 2
+     Color 0.761 0.386 0.078 1
+     Size 420 3
+    }
+    VerticalLayoutWidgetClass "{675510AA01000030}" {
+     Name "PanelContent"
+     Slot OverlayWidgetSlot "{675510AA01000031}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+      Padding 0 0 0 0
+     }
+     "Z Order" 5
+     {
+      OverlayWidgetClass "{675510AA01000040}" {
+       Name "HeaderSection"
+       Slot LayoutSlot "{675510AA01000041}" {
+       }
+       {
+        ImageWidgetClass "{675510AA01000042}" {
+         Name "HeaderBG"
+         Slot OverlayWidgetSlot "{675510AA01000043}" {
+          HorizontalAlign 3
+          VerticalAlign 3
+         }
+         Color 0.06 0.06 0.07 1
+        }
+        VerticalLayoutWidgetClass "{675510AA01000044}" {
+         Name "HeaderContent"
+         Slot OverlayWidgetSlot "{675510AA01000045}" {
+          HorizontalAlign 3
+          VerticalAlign 3
+          Padding 20 15 20 15
+         }
+         {
+          TextWidgetClass "{675510AA01000046}" {
+           Name "TitleText"
+           Slot LayoutSlot "{675510AA01000047}" {
+           }
+           Color 0.95 0.95 0.98 1
+           Text "PQD LOADOUT EDITOR"
+           "Font Size" 22
+           FontProperties FontProperties "{675510AA01000048}" {
+            Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+            Bold 1
+           }
+          }
+          HorizontalLayoutWidgetClass "{675510AA01000050}" {
+           Name "RankAndSupplyInfo"
+           Slot LayoutSlot "{675510AA01000051}" {
+            Padding 0 8 0 0
+           }
+           components {
+            PQD_RankAndSupplyInfoComponent "{675510AA01000052}" {
+            }
+           }
+           {
+            OverlayWidgetClass "{675510AA01000053}" {
+             Name "RankOverlay"
+             Slot LayoutSlot "{675510AA01000054}" {
+              Padding 0 0 12 0
+             }
+             {
+              ImageWidgetClass "{675510AA01000055}" {
+               Name "RankBG"
+               Slot OverlayWidgetSlot "{675510AA01000056}" {
+                HorizontalAlign 3
+                VerticalAlign 3
+               }
+               Color 0.15 0.12 0.08 0.8
+              }
+              HorizontalLayoutWidgetClass "{675510AA01000057}" {
+               Name "RankContent"
+               Slot OverlayWidgetSlot "{675510AA01000058}" {
+                Padding 10 5 10 5
+               }
+               {
+                TextWidgetClass "{675510AA01000059}" {
+                 Name "RankIcon"
+                 Slot LayoutSlot "{675510AA0100005A}" {
+                  VerticalAlign 1
+                 }
+                 Color 0.9 0.75 0.4 1
+                 Text "★"
+                 "Font Size" 14
+                 FontProperties FontProperties "{675510AA01RANK01}" {
+                  Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+                 }
+                }
+                TextWidgetClass "{675510AA0100005B}" {
+                 Name "RankText"
+                 Slot LayoutSlot "{675510AA0100005C}" {
+                  VerticalAlign 1
+                  Padding 6 0 0 0
+                 }
+                 Color 0.9 0.8 0.5 1
+                 Text "PRIVATE"
+                 "Font Size" 13
+                 FontProperties FontProperties "{675510AA0100005D}" {
+                  Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+                  Bold 1
+                 }
+                }
+               }
+              }
+             }
+            }
+            OverlayWidgetClass "{675510AA01000060}" {
+             Name "SupplyOverlay"
+             Slot LayoutSlot "{675510AA01000061}" {
+             }
+             {
+              ImageWidgetClass "{675510AA01000062}" {
+               Name "SupplyBG"
+               Slot OverlayWidgetSlot "{675510AA01000063}" {
+                HorizontalAlign 3
+                VerticalAlign 3
+               }
+               Color 0.08 0.12 0.08 0.8
+              }
+              HorizontalLayoutWidgetClass "{675510AA01000064}" {
+               Name "SupplyContent"
+               Slot OverlayWidgetSlot "{675510AA01000065}" {
+                Padding 10 5 10 5
+               }
+               {
+                ImageWidgetClass "{675510AA01000066}" {
+                 Name "SupplyIcon"
+                 Slot LayoutSlot "{675510AA01000067}" {
+                  VerticalAlign 1
+                 }
+                 Color 0.5 0.85 0.5 1
+                 Texture "{FDD5423E69D007F8}UI/Textures/Icons/icons_wrapperUI-128.imageset"
+                 Image "supplies"
+                 Size 16 16
+                }
+                TextWidgetClass "{675510AA01000068}" {
+                 Name "SupplyText"
+                 Slot LayoutSlot "{675510AA01000069}" {
+                  VerticalAlign 1
+                  Padding 6 0 0 0
+                 }
+                 Color 0.5 0.9 0.5 1
+                 Text "100 / 100"
+                 "Font Size" 13
+                 FontProperties FontProperties "{675510AA0100006A}" {
+                  Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+                  Bold 1
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      SizeLayoutWidgetClass "{675510AA01000070}" {
+       Name "CategorySelector"
+       Slot LayoutSlot "{675510AA01000071}" {
+       }
+       components {
+        PQD_CategoryButtonsUIComponent "{675510AA01000072}" {
+        }
+       }
+       AllowHeightOverride 1
+       HeightOverride 50
+       {
+        OverlayWidgetClass "{675510AA01000073}" {
+         Name "CategoryContainer"
+         Slot AlignableSlot "{675510AA01000074}" {
+          HorizontalAlign 3
+          VerticalAlign 3
+         }
+         {
+          ImageWidgetClass "{675510AA01000075}" {
+           Name "CategoryBG"
+           Slot OverlayWidgetSlot "{675510AA01000076}" {
+            HorizontalAlign 3
+            VerticalAlign 3
+           }
+           Color 0.05 0.05 0.06 1
+          }
+          HorizontalLayoutWidgetClass "{675510AA01000077}" {
+           Name "ButtonContainer"
+           Slot OverlayWidgetSlot "{675510AA01000078}" {
+            HorizontalAlign 3
+            VerticalAlign 1
+            Padding 10 8 10 8
+           }
+           "Z Order" 2
+           {
+            ButtonWidgetClass "{675510AA01000080}" {
+             Name "ButtonClothing"
+             Slot LayoutSlot "{675510AA01000081}" {
+              Padding 2 0 2 0
+              SizeMode Fill
+             }
+             components {
+              SCR_ModularButtonComponent "{675510AA01000082}" {
+               m_aEffects {
+                SCR_ButtonEffectColor "{675510AA01TAB001}" {
+                 m_eEvents 6144
+                 m_sWidgetName "TabBG"
+                 m_fAnimationTime 0.15
+                 m_cDefault 0.1 0.1 0.12 0.8
+                 m_cHovered 0.2 0.2 0.24 0.9
+                 m_cActivated 0.761 0.386 0.078 0.8
+                 m_cActivatedHovered 0.761 0.386 0.078 0.9
+                }
+               }
+              }
+             }
+             {
+              OverlayWidgetClass "{675510AA01TAB002}" {
+               Slot ButtonWidgetSlot "{675510AA01TAB003}" {
+                HorizontalAlign 3
+                VerticalAlign 3
+               }
+               {
+                ImageWidgetClass "{675510AA01TAB004}" {
+                 Name "TabBG"
+                 Slot OverlayWidgetSlot "{675510AA01TAB005}" {
+                  HorizontalAlign 3
+                  VerticalAlign 3
+                 }
+                 Color 0.1 0.1 0.12 0.8
+                }
+                TextWidgetClass "{675510AA01TAB006}" {
+                 Name "Label"
+                 Slot OverlayWidgetSlot "{675510AA01TAB007}" {
+                  HorizontalAlign 1
+                  VerticalAlign 1
+                  Padding 12 6 12 6
+                 }
+                 "Z Order" 1
+                 Color 1 1 1 1
+                 Text "Clothing"
+                 "Font Size" 14
+                 FontProperties FontProperties "{675510AA01TAB008}" {
+                  Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+                  Bold 1
+                 }
+                }
+               }
+              }
+             }
+            }
+            ButtonWidgetClass "{675510AA01000083}" {
+             Name "ButtonGear"
+             Slot LayoutSlot "{675510AA01000084}" {
+              Padding 2 0 2 0
+              SizeMode Fill
+             }
+             components {
+              SCR_ModularButtonComponent "{675510AA01000085}" {
+               m_aEffects {
+                SCR_ButtonEffectColor "{675510AA01TAB011}" {
+                 m_eEvents 6144
+                 m_sWidgetName "TabBG"
+                 m_fAnimationTime 0.15
+                 m_cDefault 0.1 0.1 0.12 0.8
+                 m_cHovered 0.2 0.2 0.24 0.9
+                 m_cActivated 0.761 0.386 0.078 0.8
+                 m_cActivatedHovered 0.761 0.386 0.078 0.9
+                }
+               }
+              }
+             }
+             {
+              OverlayWidgetClass "{675510AA01TAB012}" {
+               Slot ButtonWidgetSlot "{675510AA01TAB013}" {
+                HorizontalAlign 3
+                VerticalAlign 3
+               }
+               {
+                ImageWidgetClass "{675510AA01TAB014}" {
+                 Name "TabBG"
+                 Slot OverlayWidgetSlot "{675510AA01TAB015}" {
+                  HorizontalAlign 3
+                  VerticalAlign 3
+                 }
+                 Color 0.1 0.1 0.12 0.8
+                }
+                TextWidgetClass "{675510AA01TAB016}" {
+                 Name "Label"
+                 Slot OverlayWidgetSlot "{675510AA01TAB017}" {
+                  HorizontalAlign 1
+                  VerticalAlign 1
+                  Padding 12 6 12 6
+                 }
+                 "Z Order" 1
+                 Color 1 1 1 1
+                 Text "Gear"
+                 "Font Size" 14
+                 FontProperties FontProperties "{675510AA01TAB018}" {
+                  Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+                  Bold 1
+                 }
+                }
+               }
+              }
+             }
+            }
+            ButtonWidgetClass "{675510AA01000086}" {
+             Name "ButtonItems"
+             Slot LayoutSlot "{675510AA01000087}" {
+              Padding 2 0 2 0
+              SizeMode Fill
+             }
+             components {
+              SCR_ModularButtonComponent "{675510AA01000088}" {
+               m_aEffects {
+                SCR_ButtonEffectColor "{675510AA01TAB021}" {
+                 m_eEvents 6144
+                 m_sWidgetName "TabBG"
+                 m_fAnimationTime 0.15
+                 m_cDefault 0.1 0.1 0.12 0.8
+                 m_cHovered 0.2 0.2 0.24 0.9
+                 m_cActivated 0.761 0.386 0.078 0.8
+                 m_cActivatedHovered 0.761 0.386 0.078 0.9
+                }
+               }
+              }
+             }
+             {
+              OverlayWidgetClass "{675510AA01TAB022}" {
+               Slot ButtonWidgetSlot "{675510AA01TAB023}" {
+                HorizontalAlign 3
+                VerticalAlign 3
+               }
+               {
+                ImageWidgetClass "{675510AA01TAB024}" {
+                 Name "TabBG"
+                 Slot OverlayWidgetSlot "{675510AA01TAB025}" {
+                  HorizontalAlign 3
+                  VerticalAlign 3
+                 }
+                 Color 0.1 0.1 0.12 0.8
+                }
+                TextWidgetClass "{675510AA01TAB026}" {
+                 Name "Label"
+                 Slot OverlayWidgetSlot "{675510AA01TAB027}" {
+                  HorizontalAlign 1
+                  VerticalAlign 1
+                  Padding 12 6 12 6
+                 }
+                 "Z Order" 1
+                 Color 1 1 1 1
+                 Text "Items"
+                 "Font Size" 14
+                 FontProperties FontProperties "{675510AA01TAB028}" {
+                  Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+                  Bold 1
+                 }
+                }
+               }
+              }
+             }
+            }
+            ButtonWidgetClass "{675510AA01000089}" {
+             Name "ButtonLoadouts"
+             Slot LayoutSlot "{675510AA0100008A}" {
+              Padding 2 0 2 0
+              SizeMode Fill
+             }
+             components {
+              SCR_ModularButtonComponent "{675510AA0100008B}" {
+               m_aEffects {
+                SCR_ButtonEffectColor "{675510AA01TAB031}" {
+                 m_eEvents 6144
+                 m_sWidgetName "TabBG"
+                 m_fAnimationTime 0.15
+                 m_cDefault 0.1 0.1 0.12 0.8
+                 m_cHovered 0.2 0.2 0.24 0.9
+                 m_cActivated 0.761 0.386 0.078 0.8
+                 m_cActivatedHovered 0.761 0.386 0.078 0.9
+                }
+               }
+              }
+             }
+             {
+              OverlayWidgetClass "{675510AA01TAB032}" {
+               Slot ButtonWidgetSlot "{675510AA01TAB033}" {
+                HorizontalAlign 3
+                VerticalAlign 3
+               }
+               {
+                ImageWidgetClass "{675510AA01TAB034}" {
+                 Name "TabBG"
+                 Slot OverlayWidgetSlot "{675510AA01TAB035}" {
+                  HorizontalAlign 3
+                  VerticalAlign 3
+                 }
+                 Color 0.1 0.1 0.12 0.8
+                }
+                TextWidgetClass "{675510AA01TAB036}" {
+                 Name "Label"
+                 Slot OverlayWidgetSlot "{675510AA01TAB037}" {
+                  HorizontalAlign 1
+                  VerticalAlign 1
+                  Padding 12 6 12 6
+                 }
+                 "Z Order" 1
+                 Color 1 1 1 1
+                 Text "Loadouts"
+                 "Font Size" 14
+                 FontProperties FontProperties "{675510AA01TAB038}" {
+                  Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+                  Bold 1
+                 }
+                }
+               }
+              }
+             }
+            }
+            ButtonWidgetClass "{675510AA0100008C}" {
+             Name "ButtonSettings"
+             Slot LayoutSlot "{675510AA0100008D}" {
+              Padding 2 0 2 0
+              SizeMode Fill
+             }
+             components {
+              SCR_ModularButtonComponent "{675510AA0100008E}" {
+               m_aEffects {
+                SCR_ButtonEffectColor "{675510AA01TAB041}" {
+                 m_eEvents 6144
+                 m_sWidgetName "TabBG"
+                 m_fAnimationTime 0.15
+                 m_cDefault 0.1 0.1 0.12 0.8
+                 m_cHovered 0.2 0.2 0.24 0.9
+                 m_cActivated 0.761 0.386 0.078 0.8
+                 m_cActivatedHovered 0.761 0.386 0.078 0.9
+                }
+               }
+              }
+             }
+             {
+              OverlayWidgetClass "{675510AA01TAB042}" {
+               Slot ButtonWidgetSlot "{675510AA01TAB043}" {
+                HorizontalAlign 3
+                VerticalAlign 3
+               }
+               {
+                ImageWidgetClass "{675510AA01TAB044}" {
+                 Name "TabBG"
+                 Slot OverlayWidgetSlot "{675510AA01TAB045}" {
+                  HorizontalAlign 3
+                  VerticalAlign 3
+                 }
+                 Color 0.1 0.1 0.12 0.8
+                }
+                TextWidgetClass "{675510AA01TAB046}" {
+                 Name "Label"
+                 Slot OverlayWidgetSlot "{675510AA01TAB047}" {
+                  HorizontalAlign 1
+                  VerticalAlign 1
+                  Padding 12 6 12 6
+                 }
+                 "Z Order" 1
+                 Color 1 1 1 1
+                 Text "Settings"
+                 "Font Size" 14
+                 FontProperties FontProperties "{675510AA01TAB048}" {
+                  Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+                  Bold 1
+                 }
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+          ImageWidgetClass "{675510AA0100008F}" {
+           Name "CategoryDivider"
+           Slot OverlayWidgetSlot "{675510AA01000090}" {
+            HorizontalAlign 3
+            VerticalAlign 2
+           }
+           "Z Order" 1
+           Color 0.2 0.2 0.22 0.5
+           Size 420 1
+          }
+         }
+        }
+       }
+      }
+      OverlayWidgetClass "{675510AA010000A0}" {
+       Name "EditedSlotInfoContainer"
+       Slot LayoutSlot "{675510AA010000A1}" {
+       }
+       "Is Visible" 0
+       {
+        ImageWidgetClass "{675510AA010000A2}" {
+         Name "EditedSlotBG"
+         Slot OverlayWidgetSlot "{675510AA010000A3}" {
+          HorizontalAlign 3
+          VerticalAlign 3
+         }
+         Color 0.761 0.386 0.078 0.15
+        }
+        ButtonWidgetClass "{675510AA010000A4}" {
+         Name "EditedSlotInfo"
+         Slot OverlayWidgetSlot "{675510AA010000A5}" {
+          HorizontalAlign 3
+          VerticalAlign 3
+          Padding 12 10 12 10
+         }
+         "Z Order" 2
+         "Ignore Cursor" 1
+         "no focus" 1
+         components {
+          PQD_MultifunctionSlotUIComponent "{675510AA010000A6}" {
+          }
+         }
+         {
+          HorizontalLayoutWidgetClass "{675510AA010000A7}" {
+           Name "EditedSlotContent"
+           Slot ButtonWidgetSlot "{675510AA010000A8}" {
+            HorizontalAlign 3
+            VerticalAlign 3
+           }
+           {
+            SizeLayoutWidgetClass "{675510AA010000A9}" {
+             Name "PreviewBox"
+             Slot LayoutSlot "{675510AA010000AA}" {
+              VerticalAlign 1
+             }
+             AllowWidthOverride 1
+             WidthOverride 50
+             AllowHeightOverride 1
+             HeightOverride 50
+             {
+              OverlayWidgetClass "{675510AA010000AB}" {
+               Name "PreviewOverlay"
+               Slot AlignableSlot "{675510AA010000AC}" {
+                HorizontalAlign 3
+                VerticalAlign 3
+               }
+               {
+                ImageWidgetClass "{675510AA010000AD}" {
+                 Name "PreviewBG"
+                 Slot OverlayWidgetSlot "{675510AA010000AE}" {
+                  HorizontalAlign 3
+                  VerticalAlign 3
+                 }
+                 Color 0.05 0.05 0.06 0.9
+                }
+                ItemPreviewWidgetClass "{675510AA010000AF}" {
+                 Name "SlotPreview"
+                 Slot OverlayWidgetSlot "{675510AA010000B0}" {
+                  HorizontalAlign 3
+                  VerticalAlign 3
+                  Padding 2 2 2 2
+                 }
+                 "Z Order" 1
+                 "Is Visible" 0
+                 Format LDR_sRGB
+                 "Use clear color" 1
+                 "Blend mode" Blend
+                }
+                ImageWidgetClass "{675510AA010000B1}" {
+                 Name "SlotImage"
+                 Slot OverlayWidgetSlot "{675510AA010000B2}" {
+                  HorizontalAlign 3
+                  VerticalAlign 3
+                 }
+                 "Z Order" 1
+                 "Is Visible" 0
+                 Texture "{FDD5423E69D007F8}UI/Textures/Icons/icons_wrapperUI-128.imageset"
+                 Image "careerCircleOutline"
+                 Size 40 40
+                }
+                PanelWidgetClass "{675510AA010000B3}" {
+                 Name "PreviewBorder"
+                 Slot OverlayWidgetSlot "{675510AA010000B4}" {
+                  HorizontalAlign 3
+                  VerticalAlign 3
+                 }
+                 "Z Order" 2
+                 Color 0.761 0.386 0.078 0.6
+                 style outline_1px
+                }
+               }
+              }
+             }
+            }
+            TextWidgetClass "{675510AA010000B5}" {
+             Name "SlotText"
+             Slot LayoutSlot "{675510AA010000B6}" {
+              Padding 12 0 0 0
+              SizeMode Fill
+             }
+             Color 0.95 0.9 0.8 1
+             "Font Size" 15
+             "Vertical Alignment" Center
+             Wrap 1
+             FontProperties FontProperties "{675510AA010000B7}" {
+              Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      OverlayWidgetClass "{675510AA010000C0}" {
+       Name "ListBoxSlotChoices"
+       Slot LayoutSlot "{675510AA010000C1}" {
+        SizeMode Fill
+       }
+       "Z Order" 1
+       components {
+        PQD_SlotsUIComponent "{675510AA010000C2}" {
+        }
+       }
+       {
+        ScrollLayoutWidgetClass "{675510AA010000C3}" {
+         Name "ScrollLayout0"
+         Slot OverlayWidgetSlot "{675510AA010000C4}" {
+          HorizontalAlign 3
+          VerticalAlign 3
+          Padding 10 8 5 8
+         }
+         Color 0.761 0.386 0.078 0.8
+         {
+          VerticalLayoutWidgetClass "{675510AA010000C5}" {
+           Name "List"
+           Slot AlignableSlot "{675510AA010000C6}" {
+            HorizontalAlign 3
+           }
+           "Z Order" 1
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  HorizontalLayoutWidgetClass "{675510AA010000D0}" {
+   Name "Footer"
+   Slot FrameWidgetSlot "{675510AA010000D1}" {
+    Anchor 0 1 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY -60
+    OffsetTop -60
+    SizeX 0
+    OffsetRight 0
+    SizeY 60
+    OffsetBottom 0
+   }
+   "Z Order" 15
+   "Fill Origin" Right
+   {
+    ButtonWidgetClass "{675510AATABLEFT}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+     Name "TabNextButton"
+     Slot LayoutSlot "{675510AATABLEF2}" {
+      Padding 16 0 16 0
+     }
+     "Z Order" 1
+     components {
+      SCR_InputButtonComponent "{675510AATABLEF3}" {
+       m_sActionName "PQD_TabNext"
+       m_sLabel "Next Tab"
+      }
+     }
+    }
+    ButtonWidgetClass "{675510AA010000E6}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+     Name "EditButton"
+     Slot LayoutSlot "{675510AA010000E7}" {
+      Padding 16 0 16 0
+     }
+     "Z Order" 5
+     "Is Enabled" 0
+     "Is Visible" 0
+     components {
+      SCR_InputButtonComponent "{675510AA010000E8}" {
+       m_sActionName "PQD_Edit"
+       m_sLabel "Edit"
+      }
+     }
+    }
+    ButtonWidgetClass "{675510AA010000E9}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+     Name "RemoveItemButton"
+     Slot LayoutSlot "{675510AA010000EA}" {
+      Padding 16 0 16 0
+     }
+     "Z Order" 5
+     "Is Enabled" 0
+     "Is Visible" 0
+     components {
+      SCR_InputButtonComponent "{675510AA010000EB}" {
+       m_sActionName "ButtonSecondary"
+       m_sLabel "Remove"
+      }
+     }
+    }
+    ButtonWidgetClass "{675510AA010000F8}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+     Name "LoadLoadoutButton"
+     Slot LayoutSlot "{675510AA010000F9}" {
+      Padding 16 0 16 0
+     }
+     "Z Order" 5
+     "Is Enabled" 0
+     "Is Visible" 0
+     components {
+      SCR_InputButtonComponent "{675510AA010000FA}" {
+       m_sActionName "PQD_LoadLoadout"
+       m_sLabel "Load"
+      }
+     }
+    }
+    ButtonWidgetClass "{675510AA010000EC}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+     Name "SaveLoadoutButton"
+     Slot LayoutSlot "{675510AA010000ED}" {
+      Padding 16 0 16 0
+     }
+     "Z Order" 5
+     "Is Enabled" 0
+     "Is Visible" 0
+     components {
+      SCR_InputButtonComponent "{675510AA010000EE}" {
+       m_sActionName "PQD_SaveLoadout"
+       m_sLabel "Save"
+      }
+     }
+    }
+    ButtonWidgetClass "{675510AA010000EF}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+     Name "ClearLoadoutButton"
+     Slot LayoutSlot "{675510AA010000F0}" {
+      Padding 16 0 16 0
+     }
+     "Z Order" 5
+     "Is Enabled" 0
+     "Is Visible" 0
+     components {
+      SCR_InputButtonComponent "{675510AA010000F1}" {
+       m_sActionName "PQD_ClearLoadout"
+       m_sLabel "Delete"
+      }
+     }
+    }
+    ButtonWidgetClass "{675510AA010000E0}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+     Name "BackButton"
+     Slot LayoutSlot "{675510AA010000E1}" {
+      Padding 16 0 16 0
+     }
+     "Z Order" 5
+     components {
+      SCR_InputButtonComponent "{675510AA010000E2}" {
+       m_sActionName "MenuBack"
+       m_sLabel "Back"
+      }
+     }
+    }
+   }
+  }
+  VerticalLayoutWidgetClass "{675510AA01000100}" {
+   Name "InventoryPanelMain"
+   Slot FrameWidgetSlot "{675510AA01000101}" {
+    Anchor 0 0 0 1
+    PositionX 420
+    OffsetLeft 420
+    PositionY 0
+    OffsetTop 0
+    SizeX 480
+    OffsetRight -900
+    SizeY 0
+    OffsetBottom 60
+   }
+   "Z Order" 8
+   "Is Visible" 0
+   components {
+    PQD_InventoryPanelUIComponent "{675510AA01000102}" {
+    }
+   }
+   {
+    OverlayWidgetClass "{675510AA01000103}" {
+     Name "InventoryHeader"
+     Slot LayoutSlot "{675510AA01000104}" {
+     }
+     {
+      ImageWidgetClass "{675510AA01000105}" {
+       Name "HeaderBG"
+       Slot OverlayWidgetSlot "{675510AA01000106}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       Color 0.04 0.04 0.05 0.95
+      }
+      TextWidgetClass "{675510AA01000107}" {
+       Name "PanelTitle"
+       Slot OverlayWidgetSlot "{675510AA01000108}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+        Padding 16 12 16 12
+       }
+       Color 0.761 0.5 0.2 1
+       Text "AVAILABLE ITEMS"
+       "Font Size" 16
+       FontProperties FontProperties "{675510AA01000109}" {
+        Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+        Bold 1
+       }
+      }
+     }
+    }
+    OverlayWidgetClass "{675510AA01000110}" {
+     Name "ItemListContainer"
+     Slot LayoutSlot "{675510AA01000111}" {
+      SizeMode Fill
+     }
+     {
+      ImageWidgetClass "{675510AA01000112}" {
+       Name "ListBG"
+       Slot OverlayWidgetSlot "{675510AA01000113}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       Color 0.03 0.03 0.035 0.92
+      }
+      ScrollLayoutWidgetClass "{675510AA01000114}" {
+       Name "ItemScrollLayout"
+       Slot OverlayWidgetSlot "{675510AA01000115}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+        Padding 10 8 5 8
+       }
+       Color 0.761 0.386 0.078 0.8
+       {
+        VerticalLayoutWidgetClass "{675510AA01000116}" {
+         Name "ItemList"
+         Slot AlignableSlot "{675510AA01000117}" {
+          HorizontalAlign 3
+         }
+         components {
+          PQD_SlotsUIComponent "{675510AA01000118}" {
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  HorizontalLayoutWidgetClass "{675510AA01000120}" {
+   Name "Statusbar"
+   Slot FrameWidgetSlot "{675510AA01000121}" {
+    Anchor 0.5 0 0.5 0
+    PositionX 0
+    OffsetLeft 250
+    PositionY 0
+    OffsetTop 0
+    SizeX 500
+    OffsetRight 250
+    SizeY 40
+    OffsetBottom -40
+   }
+   "Z Order" 20
+   components {
+    PQD_StatusMessageUIComponent "{675510AA01000122}" {
+    }
+   }
+   {
+    OverlayWidgetClass "{675510AA01000123}" {
+     Name "StatusContainer"
+     Slot LayoutSlot "{675510AA01000124}" {
+      SizeMode Fill
+     }
+     {
+      HorizontalLayoutWidgetClass "{675510AA01000125}" {
+       Name "StatusMessage"
+       Slot OverlayWidgetSlot "{675510AA01000126}" {
+        HorizontalAlign 1
+        VerticalAlign 1
+       }
+       "Is Visible" 0
+       {
+        OverlayWidgetClass "{675510AA01000127}" {
+         Name "StatusOverlay"
+         Slot LayoutSlot "{675510AA01000128}" {
+         }
+         {
+          ImageWidgetClass "{675510AA01000129}" {
+           Name "StatusBackground"
+           Slot OverlayWidgetSlot "{675510AA0100012A}" {
+            HorizontalAlign 3
+            VerticalAlign 3
+           }
+           Color 0.2 0.6 0.3 0.95
+          }
+          TextWidgetClass "{675510AA0100012B}" {
+           Name "StatusText"
+           Slot OverlayWidgetSlot "{675510AA0100012C}" {
+            HorizontalAlign 3
+            VerticalAlign 3
+            Padding 16 8 16 8
+           }
+           Color 1 1 1 1
+           Text ""
+           "Font Size" 14
+           "Horizontal Alignment" Center
+           "Vertical Alignment" Center
+           FontProperties FontProperties "{675510AA0100012D}" {
+            Font "{3E7733BAC8C831F6}UI/Fonts/RobotoCondensed/RobotoCondensed_Regular.fnt"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

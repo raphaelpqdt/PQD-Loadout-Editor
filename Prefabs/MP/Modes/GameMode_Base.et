@@ -1,0 +1,395 @@
+SCR_BaseGameMode {
+ ID "56B2B479C6B96951"
+ components {
+  PQD_GameModeComponent "{6706C62185B7EC9A}" {
+  }
+  PQD_LoadoutStorageComponent "{6706C62185B7EC9B}" {
+  }
+  PQD_RespawnLoadoutComponent "{6706C62185B7EC9C}" {
+   m_bEnabled 1
+   m_iMaxLoadoutsToShow 5
+   m_bShowEmptySlots 0
+  }
+  SCR_DataCollectorComponent "{5ADE83EE64329989}" {
+   m_aModules {
+    SCR_DataCollectorBasicActionsModule "{5AE097A82ED69A98}" {
+    }
+    SCR_DataCollectorDriverModule "{5AE097BB69284302}" {
+    }
+    SCR_DataCollectorShootingModule "{5AE097BB6217A2F8}" {
+    }
+    SCR_DataCollectorHealingItemsModule "{5CECE314484120F4}" {
+     m_aConsumableTypes {
+      ConsumableTypeStats "{5CECE316446057A9}" {
+       m_eConsumableType BANDAGE
+       m_eDataStatsSelf BANDAGE_SELF
+       m_eDataStatsFriend BANDAGE_FRIENDLIES
+      }
+      ConsumableTypeStats "{5CECE31644CBD9C5}" {
+       m_eConsumableType TOURNIQUET
+       m_eDataStatsSelf TOURNIQUET_SELF
+       m_eDataStatsFriend TOURNIQUET_FRIENDLIES
+      }
+      ConsumableTypeStats "{5CECE316453FD0FC}" {
+       m_eConsumableType SALINE
+       m_eDataStatsSelf SALINE_SELF
+       m_eDataStatsFriend SALINE_FRIENDLIES
+      }
+      ConsumableTypeStats "{5CECE316451EC89B}" {
+       m_eConsumableType MORPHINE
+       m_eDataStatsSelf MORPHINE_SELF
+       m_eDataStatsFriend MORPHINE_FRIENDLIES
+      }
+     }
+    }
+    SCR_DataCollectorCrimesModule "{5D9C706AD14AF695}" {
+     m_aLightBanPunishments +{
+     }
+     m_aHeavyBanPunishments +{
+     }
+    }
+    SCR_DataCollectorAchievementsModule "{5DE86E4CB99B3FFB}" {
+    }
+   }
+  }
+  SCR_EntityCatalogManagerComponent "{5C9AD18D91F9E87E}" {
+   m_aEntityCatalogs {
+    SCR_EntityCatalogMultiList "{5C9AD18D9D38E99E}" : "{EAD206A79A774696}Configs/EntityCatalog/FactionLess/Characters_EntityCatalog_Factionless.conf" {
+    }
+    SCR_EntityCatalogMultiList "{5C9AD18D9B68853E}" : "{77243A71AF0E5A75}Configs/EntityCatalog/FactionLess/Vehicles_EntityCatalog_Factionless.conf" {
+    }
+    SCR_EntityCatalogMultiList "{61C8EED3993E46B7}" : "{2E8FFD9558E26113}Configs/EntityCatalog/FactionLess/Groups_EntityCatalog_Factionless.conf" {
+    }
+    SCR_EntityCatalogMultiList "{61C8EED39E8B0DC3}" : "{0CC054C7DEDC766E}Configs/EntityCatalog/FactionLess/WeaponTripod_EntityCatalog_Factionless.conf" {
+    }
+    SCR_EntityCatalogMultiList "{5C9AD18D98F9181C}" : "{BB12292052E2F5B8}Configs/EntityCatalog/FactionLess/InventoryItems_EntityCatalog_Factionless.conf" {
+    }
+    SCR_EntityCatalog "{5C9EDDD29E61EF44}" : "{B80293331FB7BFCF}Configs/EntityCatalog/FactionLess/SupplyContainerItems_EntityCatalog_Factionless.conf" {
+    }
+   }
+  }
+  SCR_GameOverScreenManagerComponent "{56DEC646298AD219}" {
+   m_GameOverScreenConfig SCR_GameOverScreenConfig "{56DEC6462FFDD82D}" : "{651583FFFB7FC765}Configs/GameOverScreen/BaseGameOverScreensConfig.conf" {
+   }
+  }
+  SCR_GroupsManagerComponent "{5706EC99934496F5}" {
+   m_sDefaultGroupPrefab "{8B4D49A9F324E7D5}Prefabs/Groups/PlayableGroup.et"
+   m_iPlayableGroupFrequencyOffset 200
+   m_iPlayableGroupFrequencyMax 44400
+  }
+  SCR_IdentityManagerComponent "{5AEEA80681EA61AF}" {
+   m_aIdentityBioTypeHoldersConfigs +{
+   }
+   m_ExtendedIdentityHints SCR_GeneralHintStorage "{6226DDCD824CB407}" : "{4C689530864AD7DF}Configs/Hints/ExtendedIdentityHints.conf" {
+   }
+  }
+  SCR_NotificationSenderComponent "{56FA84B04BE7D4C0}" {
+   m_aKillfeedTypeNames {
+    SCR_NotificationKillfeedTypeName "{5932B0310455E486}" {
+     m_iKillfeedType DISABLED
+     m_sKillfeedTypeName "#AR-Notification_KillfeedType_DISABLED"
+    }
+    SCR_NotificationKillfeedTypeName "{5932B0310491106B}" {
+     m_iKillfeedType UNKNOWN_KILLER
+     m_sKillfeedTypeName "#AR-Notification_KillfeedType_UNKNOWN_KILLER"
+    }
+    SCR_NotificationKillfeedTypeName "{5932B031048D51BD}" {
+     m_iKillfeedType FULL
+     m_sKillfeedTypeName "#AR-Notification_KillfeedType_FULL"
+    }
+   }
+   m_aKillfeedReceiveTypeNames {
+    SCR_NotificationKillfeedreceiveTypeName "{5932B036B747E765}" {
+     m_iKillfeedreceiveType ALL
+     m_sKillfeedReceiveTypeName "#AR-Notification_KillfeedReceiveType_ALL"
+    }
+    SCR_NotificationKillfeedreceiveTypeName "{5932B036B7003ECC}" {
+     m_iKillfeedreceiveType ALLIES_ONLY
+     m_sKillfeedReceiveTypeName "#AR-Notification_KillfeedReceiveType_ALLIES_ONLY"
+    }
+    SCR_NotificationKillfeedreceiveTypeName "{5932B036B7D2B6CF}" {
+     m_iKillfeedreceiveType SAME_FACTION_ONLY
+     m_sKillfeedReceiveTypeName "#AR-Notification_KillfeedReceiveType_SAME_FACTION_ONLY"
+    }
+    SCR_NotificationKillfeedreceiveTypeName "{5932B036B6AB6528}" {
+     m_iKillfeedreceiveType GROUP_ONLY
+     m_sKillfeedReceiveTypeName "#AR-Notification_KillfeedReceiveType_GROUP_ONLY"
+    }
+    SCR_NotificationKillfeedreceiveTypeName "{5932B036A5A136C4}" {
+     m_iKillfeedreceiveType ENEMIES_ONLY
+     m_sKillfeedReceiveTypeName "#AR-Notification_KillfeedReceiveType_ENEMIES_ONLY"
+    }
+   }
+   m_aFriendlyFireKillfeedTypeNames {
+    SCR_NotificationFriendlyFireKillfeedTypeName "{620E8003E24FB839}" {
+     m_sFriendlyFireKillfeedTypeName "#AR-Notification_KillfeedFriendlyFireType_Default"
+    }
+    SCR_NotificationFriendlyFireKillfeedTypeName "{620E8003E2F5160C}" {
+     m_eFriendlyFireKillfeedType SHOW_FRIENDLY_KILLS_TO_PLAYERS_INVOLVED
+     m_sFriendlyFireKillfeedTypeName "#AR-Notification_KillfeedFriendlyFireType_PlayersInvolved"
+    }
+    SCR_NotificationFriendlyFireKillfeedTypeName "{620E8003E2C6BBA6}" {
+     m_eFriendlyFireKillfeedType SHOW_FRIENDLY_KILLS_TO_TEAM
+     m_sFriendlyFireKillfeedTypeName "#AR-Notification_KillfeedFriendlyFireType_FriendlyTeam"
+    }
+   }
+   m_PlayerKickReasonsConfig SCR_ConfigurableDialogUiPresets "{5AD6C337FC7F76C0}" : "{D3BFEE28E7D5B6A1}Configs/ServerBrowser/KickDialogs.conf" {
+   }
+  }
+  SCR_PerceivedFactionManagerComponent "{61AA7E6E0C6A76F9}" {
+   m_PerceivedFactionHints SCR_GeneralHintStorage "{6290C14649BD50BC}" : "{8727E06B47EF8609}Configs/Hints/PerceivedFaction/PerceivedFactionHints.conf" {
+   }
+  }
+  SCR_RadialMenuItemsComponent "{5C92B03271ABD8AA}" {
+   m_MenuController SCR_RadialMenuController "{5C92B0326E1334FB}" {
+    m_RMControls SCR_RadialMenuControllerInputs "{5C92B0326C6BC5B4}" {
+     m_sControllerContext "WeaponSelectionContext"
+     m_sOpenAction "Inventory_WeaponSwitchingRadial"
+     m_bCloseOnPerform 1
+     m_bShowWhileUnconcious 0
+    }
+   }
+  }
+  SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
+  }
+  SCR_TextsTaskManagerComponent "{65D26A2BD9437584}" {
+   m_aEntries {
+    SCR_TextsTaskManagerEntry "{66087CBCDF4877FF}" {
+     m_TextType MOVE
+     m_aTexts {
+      SCR_UIDescription "{58F09D239F4FB4D6}" {
+       Name "#AR-Editor_MoveTask_1_Name"
+       Description "#AR-Editor_MoveTask_1_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4D5}" {
+       Name "#AR-Editor_MoveTask_2_Name"
+       Description "#AR-Editor_MoveTask_2_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4D4}" {
+       Name "#AR-Editor_MoveTask_3_Name"
+       Description "#AR-Editor_MoveTask_3_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4EB}" {
+       Name "#AR-Editor_MoveTask_4_Name"
+       Description "#AR-Editor_MoveTask_4_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4EA}" {
+       Name "#AR-Editor_MoveTask_5_Name"
+       Description "#AR-Editor_MoveTask_5_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4E9}" {
+       Name "#AR-Editor_MoveTask_6_Name"
+       Description "#AR-Editor_MoveTask_6_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4E8}" {
+       Name "#AR-Editor_MoveTask_7_Name"
+       Description "#AR-Editor_MoveTask_7_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4EF}" {
+       Name "#AR-Editor_MoveTask_8_Name"
+       Description "#AR-Editor_MoveTask_8_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4EE}" {
+       Name "#AR-Editor_MoveTask_9_Name"
+       Description "#AR-Editor_MoveTask_9_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4ED}" {
+       Name "#AR-Editor_MoveTask_10_Name"
+       Description "#AR-Editor_MoveTask_10_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4EC}" {
+       Name "#AR-Editor_MoveTask_11_Name"
+       Description "#AR-Editor_MoveTask_11_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4E2}" {
+       Name "#AR-Editor_MoveTask_12_Name"
+       Description "#AR-Editor_MoveTask_12_Description"
+      }
+     }
+    }
+    SCR_TextsTaskManagerEntry "{66087CBCDF48700F}" {
+     m_TextType ATTACK
+     m_aTexts {
+      SCR_UIDescription "{58F09D239F4FB4FF}" {
+       Name "#AR-Editor_AttackTask_0_Name"
+       Description "#AR-Editor_AttackTask_0_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4FE}" {
+       Name "#AR-Editor_AttackTask_2_Name"
+       Description "#AR-Editor_AttackTask_2_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4FD}" {
+       Name "#AR-Editor_AttackTask_1_Name"
+       Description "#AR-Editor_AttackTask_1_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4FC}" {
+       Name "#AR-Editor_AttackTask_3_Name"
+       Description "#AR-Editor_AttackTask_3_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4F3}" {
+       Name "#AR-Editor_AttackTask_4_Name"
+       Description "#AR-Editor_AttackTask_4_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4F2}" {
+       Name "#AR-Editor_AttackTask_5_Name"
+       Description "#AR-Editor_AttackTask_5_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4F1}" {
+       Name "#AR-Editor_AttackTask_6_Name"
+       Description "#AR-Editor_AttackTask_6_Description"
+      }
+     }
+    }
+    SCR_TextsTaskManagerEntry "{66087CBCDF4870CF}" {
+     m_TextType DEFEND
+     m_aTexts {
+      SCR_UIDescription "{58F09D239F4FB4E0}" {
+       Name "#AR-Editor_DefendTask_0_Name"
+       Description "#AR-Editor_DefendTask_0_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4E7}" {
+       Name "#AR-Editor_DefendTask_1_Name"
+       Description "#AR-Editor_DefendTask_1_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4E6}" {
+       Name "#AR-Editor_DefendTask_2_Name"
+       Description "#AR-Editor_DefendTask_2_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4E5}" {
+       Name "#AR-Editor_DefendTask_3_Name"
+       Description "#AR-Editor_DefendTask_3_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4E4}" {
+       Name "#AR-Editor_DefendTask_4_Name"
+       Description "#AR-Editor_DefendTask_4_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4FB}" {
+       Name "#AR-Editor_DefendTask_5_Name"
+       Description "#AR-Editor_DefendTask_5_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4FA}" {
+       Name "#AR-Editor_DefendTask_6_Name"
+       Description "#AR-Editor_DefendTask_6_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4F9}" {
+       Name "#AR-Editor_DefendTask_7_Name"
+       Description "#AR-Editor_DefendTask_7_Description"
+      }
+     }
+    }
+    SCR_TextsTaskManagerEntry "{66087CBCDF487092}" {
+     m_TextType CUSTOM
+     m_aTexts {
+      SCR_UIDescription "{58F09D239F4FB4CF}" {
+       Name "#AR-Editor_CustomTask_1_Name"
+       Description "#AR-Editor_CustomTask_1_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4CD}" {
+       Name "#AR-Editor_CustomTask_2_Name"
+       Description "#AR-Editor_CustomTask_2_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4C3}" {
+       Name "#AR-Editor_CustomTask_3_Name"
+       Description "#AR-Editor_CustomTask_3_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4C2}" {
+       Name "#AR-Editor_CustomTask_4_Name"
+       Description "#AR-Editor_CustomTask_4_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4C0}" {
+       Name "#AR-Editor_CustomTask_5_Name"
+       Description "#AR-Editor_CustomTask_5_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4C7}" {
+       Name "#AR-Editor_CustomTask_6_Name"
+       Description "#AR-Editor_CustomTask_6_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4C6}" {
+       Name "#AR-Editor_CustomTask_7_Name"
+       Description "#AR-Editor_CustomTask_7_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4C5}" {
+       Name "#AR-Editor_CustomTask_8_Name"
+       Description "#AR-Editor_CustomTask_8_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4C4}" {
+       Name "#AR-Editor_CustomTask_9_Name"
+       Description "#AR-Editor_CustomTask_9_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4DB}" {
+       Name "#AR-Editor_CustomTask_10_Name"
+       Description "#AR-Editor_CustomTask_10_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4DA}" {
+       Name "#AR-Editor_CustomTask_11_Name"
+       Description "#AR-Editor_CustomTask_11_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4D9}" {
+       Name "#AR-Editor_CustomTask_12_Name"
+       Description "#AR-Editor_CustomTask_12_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4D8}" {
+       Name "#AR-Editor_CustomTask_13_Name"
+       Description "#AR-Editor_CustomTask_13_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4DF}" {
+       Name "#AR-Editor_CustomTask_14_Name"
+       Description "#AR-Editor_CustomTask_14_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4DE}" {
+       Name "#AR-Editor_CustomTask_15_Name"
+       Description "#AR-Editor_CustomTask_15_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4DD}" {
+       Name "#AR-Editor_CustomTask_16_Name"
+       Description "#AR-Editor_CustomTask_16_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4DC}" {
+       Name "#AR-Editor_CustomTask_17_Name"
+       Description "#AR-Editor_CustomTask_17_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4D3}" {
+       Name "#AR-Editor_CustomTask_18_Name"
+       Description "#AR-Editor_CustomTask_18_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4D2}" {
+       Name "#AR-Editor_CustomTask_19_Name"
+       Description "#AR-Editor_CustomTask_19_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4D1}" {
+       Name "#AR-Editor_CustomTask_20_Name"
+       Description "#AR-Editor_CustomTask_20_Description"
+      }
+      SCR_UIDescription "{58F09D239F4FB4D0}" {
+       Name "#AR-Editor_CustomTask_21_Name"
+       Description "#AR-Editor_CustomTask_21_Description"
+      }
+     }
+    }
+   }
+  }
+  SCR_VotingManagerComponent "{5650BB6B6089393A}" : "{37037CBB8B4CD354}Prefabs/MP/Components/VotingManagerComponent.ct" {
+   m_aVotingTemplates {
+    SCR_VotingGroupLeader "{66087CBCD4919980}" {
+     m_Type GROUP_LEADER
+     m_bIsValuePlayerID 1
+     m_fDuration 60
+     m_iMinVotes 2
+     m_Info SCR_VotingUIInfo "{65C4612542CA9B34}" {
+      m_sStartVotingName "#AR-Player_Groups_Leader_Volunteer"
+      m_sStickyNotificationText "#AR-Player_Groups_Notifications_Volunteered_Leader"
+     }
+     m_iJoinServerVoteCooldown 1
+     m_iVoteCooldownTime 240
+     m_bAlwaysDisplayVoteSubjectVotingTimer 1
+    }
+   }
+  }
+  RplComponent "{56B2B4793BF2E1B4}" {
+   "Rpl State Override" None
+   Streamable Disabled
+  }
+ }
+ Flags 0 0x3
+ coords 1076.468 51.001 1325.247
+}

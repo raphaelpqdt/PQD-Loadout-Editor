@@ -1,0 +1,189 @@
+ButtonWidgetClass {
+ Name "Button"
+ Slot AlignableSlot "{675510DD01000001}" {
+  HorizontalAlign 0
+ }
+ Color 1 1 1 0
+ components {
+  SCR_ModularButtonComponent "{675510DD01000002}" {
+   m_aEffects {
+    SCR_ButtonEffectOpacity "{675510DD01000003}" {
+     m_eEvents 6144
+     m_sWidgetName "SlotBorder"
+     m_fAnimationTime 0.1
+     m_fDefault 0
+     m_fHovered 0.25
+     m_fActivated 0.25
+    }
+    SCR_ButtonEffectSound "{675510DD01000004}" {
+     m_aTags {
+      "CheckerKnob"
+     }
+     m_eEvents EVENT_MOUSE_ENTER
+     m_eInputDevices 50
+     m_sSound "SOUND_FE_BUTTON_HOVER"
+    }
+   }
+   m_bFocusOnMouseEnter 1
+  }
+ }
+ {
+  SizeLayoutWidgetClass "{675510DD01000010}" {
+   Name "SizeLayout"
+   Slot ButtonWidgetSlot "{675510DD01000011}" {
+   }
+   AllowWidthOverride 1
+   WidthOverride 382
+   AllowHeightOverride 1
+   HeightOverride 100
+   {
+    OverlayWidgetClass "{675510DD01000012}" {
+     Name "Overlay"
+     Slot AlignableSlot "{675510DD01000013}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+     }
+     {
+      PanelWidgetClass "{675510DD01000014}" {
+       Name "Background"
+       Slot OverlayWidgetSlot "{675510DD01000015}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       Color 0.05 0.05 0.05 0.9
+       style full
+      }
+      HorizontalLayoutWidgetClass "{675510DD01000020}" {
+       Name "ContentLayout"
+       Slot OverlayWidgetSlot "{675510DD01000021}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+        Padding 8 8 8 8
+       }
+       {
+        VerticalLayoutWidgetClass "{675510DD01000022}" {
+         Name "InfoLayout"
+         Slot LayoutSlot "{675510DD01000023}" {
+          SizeMode Fill
+         }
+         {
+          TextWidgetClass "{675510DD01000024}" {
+           Name "LoadoutName"
+           Slot LayoutSlot "{675510DD01000025}" {
+           }
+           Color 1 1 1 1
+           Text "Loadout 1"
+           "Font Size" 14
+           FontProperties FontProperties "{675510DD01000026}" {
+            Font "{E2CBA6F76AAA42AF}UI/Fonts/Roboto/Roboto_Regular.fnt"
+           }
+          }
+          TextWidgetClass "{675510DD01000030}" {
+           Name "ClothesMetadata"
+           Slot LayoutSlot "{675510DD01000031}" {
+           }
+           Color 0.6 0.6 0.6 1
+           Text "Clothes info"
+           "Font Size" 10
+           Wrap 1
+           FontProperties FontProperties "{675510DD01000032}" {
+            Font "{E2CBA6F76AAA42AF}UI/Fonts/Roboto/Roboto_Regular.fnt"
+           }
+          }
+          TextWidgetClass "{675510DD01000040}" {
+           Name "WeaponsMetadata"
+           Slot LayoutSlot "{675510DD01000041}" {
+           }
+           Color 0.6 0.6 0.6 1
+           Text "Weapons info"
+           "Font Size" 10
+           Wrap 1
+           FontProperties FontProperties "{675510DD01000042}" {
+            Font "{E2CBA6F76AAA42AF}UI/Fonts/Roboto/Roboto_Regular.fnt"
+           }
+          }
+         }
+        }
+        VerticalLayoutWidgetClass "{675510DD01000050}" {
+         Name "CostLayout"
+         Slot LayoutSlot "{675510DD01000051}" {
+          HorizontalAlign 2
+          VerticalAlign 0
+         }
+         {
+          OverlayWidgetClass "{675510DD01000052}" {
+           Name "RankOverlay"
+           Slot LayoutSlot "{675510DD01000053}" {
+           }
+           {
+            PanelWidgetClass "{675510DD01000054}" {
+             Name "RankPanel"
+             Slot OverlayWidgetSlot "{675510DD01000055}" {
+              HorizontalAlign 3
+              VerticalAlign 3
+             }
+             Color 0.3 0.3 0.3 0.5
+             style full
+            }
+            TextWidgetClass "{675510DD01000056}" {
+             Name "RankText"
+             Slot OverlayWidgetSlot "{675510DD01000057}" {
+              Padding 4 2 4 2
+             }
+             Color 1 1 1 1
+             Text "PVT"
+             "Font Size" 10
+             FontProperties FontProperties "{675510DD01000058}" {
+              Font "{E2CBA6F76AAA42AF}UI/Fonts/Roboto/Roboto_Regular.fnt"
+             }
+            }
+           }
+          }
+          HorizontalLayoutWidgetClass "{675510DD01000060}" {
+           Name "SupplyLayout"
+           Slot LayoutSlot "{675510DD01000061}" {
+           }
+           {
+            ImageWidgetClass "{675510DD01000062}" {
+             Name "SupplyIcon"
+             Slot LayoutSlot "{675510DD01000063}" {
+              VerticalAlign 1
+             }
+             Texture "{FDD5423E69D007F8}UI/Textures/Icons/icons_wrapperUI-128.imageset"
+             Image "supplies"
+             Size 16 16
+            }
+            TextWidgetClass "{675510DD01000064}" {
+             Name "SupplyText"
+             Slot LayoutSlot "{675510DD01000065}" {
+              VerticalAlign 1
+              Padding 4 0 0 0
+             }
+             Color 1 1 1 1
+             Text "0"
+             "Font Size" 10
+             FontProperties FontProperties "{675510DD01000066}" {
+              Font "{E2CBA6F76AAA42AF}UI/Fonts/Roboto/Roboto_Regular.fnt"
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      PanelWidgetClass "{675510DD01000070}" {
+       Name "SlotBorder"
+       Slot OverlayWidgetSlot "{675510DD01000071}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       Color 0.701 0.366 0.078 1
+       style full
+      }
+     }
+    }
+   }
+  }
+ }
+}
