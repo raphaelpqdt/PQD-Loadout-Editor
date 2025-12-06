@@ -292,15 +292,28 @@ modded class SCR_PlayerArsenalLoadout : SCR_FactionPlayerLoadout
 			return;
 		}
 		
-		// This is a PQD loadout slot - apply saved loadout data
+		Print(string.Format("[PQD] OnLoadoutSpawned: Processing PQD slot %1 for player %2", m_sPQDSlotId, playerId), LogLevel.NORMAL);
+		
+		// Check if we already have pre-cached loadout from RPC (pre-cached in Rpc_NotifyPQDSelection_S)
+		// This prevents race conditions where RPC arrived before OnLoadoutSpawned
+		if (PQD_PendingLoadoutManager.HasPendingLoadout(playerId))
+		{
+			PQD_PendingLoadout pending = PQD_PendingLoadoutManager.GetPendingLoadout(playerId);
+			if (pending && !pending.loadoutData.IsEmpty())
+			{
+				Print(string.Format("[PQD] OnLoadoutSpawned: Player %1 already has pre-cached pending loadout with %2 bytes of data", 
+					playerId, pending.loadoutData.Length()), LogLevel.NORMAL);
+				return; // Data already cached, OnPlayerSpawned fallback will handle it
+			}
+		}
+		
+		// This is a PQD loadout slot - try to get the data now
 		GameEntity playerEntity = GameEntity.Cast(pOwner);
 		if (!playerEntity)
 		{
 			Print("[PQD] OnLoadoutSpawned: Player entity is null", LogLevel.ERROR);
 			return;
 		}
-		
-		Print(string.Format("[PQD] Applying PQD loadout slot %1 to player %2", m_sPQDSlotId, playerId), LogLevel.NORMAL);
 		
 		// Get the storage component from GameMode
 		SCR_BaseGameMode gameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
@@ -337,14 +350,16 @@ modded class SCR_PlayerArsenalLoadout : SCR_FactionPlayerLoadout
 		
 		if (!storageComp.GetPlayerLoadoutData(playerId, factionKey, slotIndex, prefab, loadoutData, cost, false, requiredRank))
 		{
-			Print(string.Format("[PQD] OnLoadoutSpawned: No loadout data found for slot %1", m_sPQDSlotId), LogLevel.WARNING);
+			Print(string.Format("[PQD] OnLoadoutSpawned: No loadout data found for slot %1 - player may spawn naked!", m_sPQDSlotId), LogLevel.WARNING);
+			// Still store the selection so fallback can try to load from file
+			PQD_ServerLoadoutSelection.SetPlayerSelection(playerId, m_sPQDSlotId, factionKey);
 			return;
 		}
 		
 		// Don't try to apply loadout to the spawned entity - it doesn't work reliably
 		// Instead, schedule a complete entity replacement after spawn
 		// This is the same approach used successfully in the arsenal
-		Print(string.Format("[PQD] OnLoadoutSpawned: Scheduling entity replacement for slot %1", m_sPQDSlotId), LogLevel.NORMAL);
+		Print(string.Format("[PQD] OnLoadoutSpawned: Scheduling entity replacement for slot %1 (data size: %2)", m_sPQDSlotId, loadoutData.Length()), LogLevel.NORMAL);
 		
 		// Add to pending loadouts - the fallback will replace the entire entity
 		PQD_PendingLoadoutManager.AddPendingLoadout(playerId, m_sPQDSlotId, loadoutData, factionKey, prefab);

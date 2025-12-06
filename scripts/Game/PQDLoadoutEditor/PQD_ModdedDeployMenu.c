@@ -129,6 +129,44 @@ modded class SCR_PlayerLoadoutComponent : ScriptComponent
 		
 		// Store this selection on the server
 		PQD_ServerLoadoutSelection.SetPlayerSelection(playerId, slotId, factionKey);
+		
+		// Pre-load and cache the loadout data NOW to avoid race conditions with spawn
+		// This ensures data is ready when OnPlayerSpawned is called
+		SCR_BaseGameMode gameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
+		if (gameMode)
+		{
+			PQD_LoadoutStorageComponent storageComp = PQD_LoadoutStorageComponent.Cast(gameMode.FindComponent(PQD_LoadoutStorageComponent));
+			if (storageComp)
+			{
+				int slotIndex = PQD_GetSlotIndex(slotId);
+				if (slotIndex >= 0)
+				{
+					string prefab, loadoutData, requiredRank;
+					float cost;
+					
+					if (storageComp.GetPlayerLoadoutData(playerId, factionKey, slotIndex, prefab, loadoutData, cost, false, requiredRank))
+					{
+						// Add to pending loadout manager to guarantee it's available when spawn happens
+						PQD_PendingLoadoutManager.AddPendingLoadout(playerId, slotId, loadoutData, factionKey, prefab);
+						Print(string.Format("[PQD] Pre-cached loadout data for player %1, slot %2 (data size: %3 bytes)", 
+							playerId, slotId, loadoutData.Length()), LogLevel.NORMAL);
+					}
+					else
+					{
+						Print(string.Format("[PQD] Warning: Could not pre-cache loadout data for player %1, slot %2 - will try on spawn", 
+							playerId, slotId), LogLevel.WARNING);
+					}
+				}
+				else
+				{
+					Print(string.Format("[PQD] Warning: Invalid slot ID '%1'", slotId), LogLevel.WARNING);
+				}
+			}
+			else
+			{
+				Print("[PQD] Warning: PQD_LoadoutStorageComponent not found on GameMode", LogLevel.WARNING);
+			}
+		}
 	}
 }
 

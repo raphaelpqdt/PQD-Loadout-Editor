@@ -92,16 +92,30 @@ modded class SCR_BaseGameMode : BaseGameMode
 		
 		Print(string.Format("[PQD] OnPlayerSpawned: Player %1 spawned, checking for PQD selection...", playerId), LogLevel.NORMAL);
 		
-		// First, check if there's a pending loadout already (from OnLoadoutSpawned)
+		// First, check if there's a pending loadout already (from OnLoadoutSpawned or pre-cached RPC)
 		if (PQD_PendingLoadoutManager.HasPendingLoadout(playerId))
 		{
-			Print(string.Format("[PQD] Fallback: Player %1 spawned with pending loadout from OnLoadoutSpawned", playerId), LogLevel.NORMAL);
-			GetGame().GetCallqueue().CallLater(PQD_ApplyFallbackLoadout, PQD_INITIAL_DELAY_MS, false, playerId, controlledEntity);
-			return;
+			PQD_PendingLoadout pending = PQD_PendingLoadoutManager.GetPendingLoadout(playerId);
+			
+			// Verify the pending loadout actually has valid data
+			if (pending && !pending.loadoutData.IsEmpty())
+			{
+				Print(string.Format("[PQD] Fallback: Player %1 has valid pending loadout with %2 bytes of data", 
+					playerId, pending.loadoutData.Length()), LogLevel.NORMAL);
+				GetGame().GetCallqueue().CallLater(PQD_ApplyFallbackLoadout, PQD_INITIAL_DELAY_MS, false, playerId, controlledEntity);
+				return;
+			}
+			else
+			{
+				Print(string.Format("[PQD] Fallback: Player %1 has pending loadout but NO DATA - will try server selection", playerId), LogLevel.WARNING);
+				// Remove the empty pending loadout
+				PQD_PendingLoadoutManager.RemovePendingLoadout(playerId);
+				// Fall through to server selection check below
+			}
 		}
 		
-		// Check if there's a server-side PQD selection (this is the new fallback mechanism)
-		// This handles the case where OnLoadoutSpawned wasn't called because GetLoadout() returned null
+		// Check if there's a server-side PQD selection (this is the fallback mechanism)
+		// This handles the case where OnLoadoutSpawned wasn't called or data wasn't available
 		PQD_PendingLoadout serverSelection = PQD_ServerLoadoutSelection.GetPlayerSelection(playerId);
 		if (serverSelection)
 		{
@@ -115,31 +129,40 @@ modded class SCR_BaseGameMode : BaseGameMode
 				// Get slot index from slot ID
 				int slotIndex = PQD_GetSlotIndex(serverSelection.slotId);
 				
-				string prefab, loadoutData, requiredRank;
-				float cost;
-				
-				if (storageComp.GetPlayerLoadoutData(playerId, serverSelection.factionKey, slotIndex, prefab, loadoutData, cost, false, requiredRank))
+				if (slotIndex >= 0)
 				{
-					Print(string.Format("[PQD] Fallback: Found loadout data for player %1, scheduling replacement", playerId), LogLevel.NORMAL);
+					string prefab, loadoutData, requiredRank;
+					float cost;
 					
-					// Add to pending loadout manager
-					PQD_PendingLoadoutManager.AddPendingLoadout(playerId, serverSelection.slotId, loadoutData, serverSelection.factionKey, prefab);
-					
-					// Clear the server selection
-					PQD_ServerLoadoutSelection.ClearPlayerSelection(playerId);
-					
-					// Schedule the fallback application
-					GetGame().GetCallqueue().CallLater(PQD_ApplyFallbackLoadout, PQD_INITIAL_DELAY_MS, false, playerId, controlledEntity);
-					return;
+					if (storageComp.GetPlayerLoadoutData(playerId, serverSelection.factionKey, slotIndex, prefab, loadoutData, cost, false, requiredRank))
+					{
+						Print(string.Format("[PQD] Fallback: Found loadout data for player %1 (size: %2 bytes), scheduling replacement", 
+							playerId, loadoutData.Length()), LogLevel.NORMAL);
+						
+						// Add to pending loadout manager
+						PQD_PendingLoadoutManager.AddPendingLoadout(playerId, serverSelection.slotId, loadoutData, serverSelection.factionKey, prefab);
+						
+						// Clear the server selection
+						PQD_ServerLoadoutSelection.ClearPlayerSelection(playerId);
+						
+						// Schedule the fallback application
+						GetGame().GetCallqueue().CallLater(PQD_ApplyFallbackLoadout, PQD_INITIAL_DELAY_MS, false, playerId, controlledEntity);
+						return;
+					}
+					else
+					{
+						Print(string.Format("[PQD] Fallback: FAILED to get loadout data for player %1, slot %2 - PLAYER WILL SPAWN NAKED!", 
+							playerId, serverSelection.slotId), LogLevel.ERROR);
+					}
 				}
 				else
 				{
-					Print(string.Format("[PQD] Fallback: No loadout data found for player %1, slot %2", playerId, serverSelection.slotId), LogLevel.WARNING);
+					Print(string.Format("[PQD] Fallback: Invalid slot ID '%1'", serverSelection.slotId), LogLevel.ERROR);
 				}
 			}
 			else
 			{
-				Print("[PQD] Fallback: PQD_LoadoutStorageComponent not found", LogLevel.ERROR);
+				Print("[PQD] Fallback: PQD_LoadoutStorageComponent not found on GameMode!", LogLevel.ERROR);
 			}
 			
 			// Clear the selection even if we couldn't get data
@@ -292,6 +315,24 @@ modded class SCR_BaseGameMode : BaseGameMode
 		}
 		
 		Print("[PQD] Fallback: Loadout applied to new entity successfully", LogLevel.NORMAL);
+		
+		// VERIFY the new entity actually has items before proceeding
+		// Use item count as a proxy for item verification
+		SCR_InventoryStorageManagerComponent invMgr = SCR_InventoryStorageManagerComponent.Cast(newEntity.FindComponent(SCR_InventoryStorageManagerComponent));
+		if (invMgr)
+		{
+			array<IEntity> items = {};
+			invMgr.GetItems(items);
+			int itemCount = items.Count();
+			if (itemCount < 2) // At minimum should have some items (clothing, etc)
+			{
+				Print(string.Format("[PQD] Fallback: WARNING - New entity only has %1 items, loadout may have partially failed!", itemCount), LogLevel.WARNING);
+			}
+			else
+			{
+				Print(string.Format("[PQD] Fallback: New entity has %1 items - loadout verified OK", itemCount), LogLevel.NORMAL);
+			}
+		}
 		
 		// Copy rank from old entity to new entity
 		SCR_ECharacterRank rank = SCR_CharacterRankComponent.GetCharacterRank(oldEntity);
