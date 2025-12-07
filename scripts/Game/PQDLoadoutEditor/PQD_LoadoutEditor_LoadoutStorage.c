@@ -597,7 +597,7 @@ sealed class PQD_LoadoutStorageComponent : SCR_BaseGameModeComponent
 			}
 			else
 			{
-				Print(string.Format("[PQD] No loadout file found at: %1", path), LogLevel.DEBUG);
+				Print(string.Format("[PQD] LoadPlayerLoadoutFromFile: File NOT FOUND at path: %1 (also checked legacy: %2)", path, legacyPath), LogLevel.WARNING);
 				return false;
 			}
 		}
@@ -622,7 +622,7 @@ sealed class PQD_LoadoutStorageComponent : SCR_BaseGameModeComponent
 		// Validate loaded data
 		playerLoadoutStorage.ValidateStorageIntegrity();
 		
-		Print(string.Format("[PQD] Loaded loadout from file for faction %1, identity %2", factionKey, identityId), LogLevel.DEBUG);
+		Print(string.Format("[PQD] LoadPlayerLoadoutFromFile: SUCCESS - Loaded loadout from file for faction %1, identity %2", factionKey, identityId), LogLevel.NORMAL);
 		
 		loadoutStorage.Set(playerId, playerLoadoutStorage);
 		
@@ -654,14 +654,25 @@ sealed class PQD_LoadoutStorageComponent : SCR_BaseGameModeComponent
 				identityId = GetGame().GetBackendApi().GetPlayerIdentityId(playerId);
 				if (identityId.IsEmpty())
 				{
-					Print(string.Format("[PQD] GetPlayerLoadoutData: Could not get identity ID for player %1", playerId), LogLevel.WARNING);
+					Print(string.Format("[PQD] GetPlayerLoadoutData: Could not get identity ID for player %1 - API returned empty", playerId), LogLevel.WARNING);
 					return false;
 				}
+				Print(string.Format("[PQD] GetPlayerLoadoutData: Player %1 has identity ID: %2", playerId, identityId), LogLevel.NORMAL);
 			}
+			
+			// Build expected file path for diagnostic
+			string expectedPath;
+			if (isAdminLoadout)
+				expectedPath = string.Format("%1/admin_loadouts", loadoutPathRoot);
+			else if (identityId.Length() >= 2)
+				expectedPath = string.Format("%1/%2/%3/%4", loadoutPathRoot, factionKey, identityId.Substring(0, 2), identityId);
+			else
+				expectedPath = string.Format("%1/%2/%3", loadoutPathRoot, factionKey, identityId);
+			Print(string.Format("[PQD] GetPlayerLoadoutData: Looking for file at: %1", expectedPath), LogLevel.NORMAL);
 			
 			if (!LoadPlayerLoadoutFromFile(playerId, identityId, factionKey, isAdminLoadout))
 			{
-				Print(string.Format("[PQD] GetPlayerLoadoutData: No storage found for player %1 and no file to load", playerId), LogLevel.WARNING);
+				Print(string.Format("[PQD] GetPlayerLoadoutData: No storage found for player %1 (identity: %2, faction: %3) - file not found at expected path", playerId, identityId, factionKey), LogLevel.WARNING);
 				return false;
 			}
 		}

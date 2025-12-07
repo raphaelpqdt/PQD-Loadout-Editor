@@ -1055,6 +1055,14 @@ sealed class PQD_PlayerControllerComponent : ScriptComponent
 		SCR_JsonLoadContext ctx = new SCR_JsonLoadContext();
 		ctx.ImportFromString(loadoutData);
 		
+		// CRITICAL: Ensure ARSENALLOADOUT_COMPONENTS_TO_CHECK is initialized
+		// Without this, inventory items inside backpacks/vests won't be applied!
+		if (!SCR_PlayerArsenalLoadout.ARSENALLOADOUT_COMPONENTS_TO_CHECK || SCR_PlayerArsenalLoadout.ARSENALLOADOUT_COMPONENTS_TO_CHECK.IsEmpty())
+		{
+			Print("[PQD] Action_ApplyPlayerLoadout_StepTwo: Initializing ARSENALLOADOUT_COMPONENTS_TO_CHECK", LogLevel.WARNING);
+			SCR_ArsenalManagerComponent.GetArsenalLoadoutComponentsToCheck(SCR_PlayerArsenalLoadout.ARSENALLOADOUT_COMPONENTS_TO_CHECK);
+		}
+		
 		SCR_PlayerArsenalLoadout.ApplyLoadoutString(entityGame, ctx);
 		
 		SCR_ECharacterRank rank = SCR_CharacterRankComponent.GetCharacterRank(previousEntity);

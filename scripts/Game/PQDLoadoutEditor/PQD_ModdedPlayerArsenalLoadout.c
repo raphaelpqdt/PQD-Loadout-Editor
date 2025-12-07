@@ -496,6 +496,13 @@ modded class SCR_PlayerArsenalLoadout : SCR_FactionPlayerLoadout
 			}
 		}
 		
+		// CRITICAL: Ensure ARSENALLOADOUT_COMPONENTS_TO_CHECK is initialized
+		if (!SCR_PlayerArsenalLoadout.ARSENALLOADOUT_COMPONENTS_TO_CHECK || SCR_PlayerArsenalLoadout.ARSENALLOADOUT_COMPONENTS_TO_CHECK.IsEmpty())
+		{
+			Print("[PQD] PQD_ApplyLoadoutToEntity: Initializing ARSENALLOADOUT_COMPONENTS_TO_CHECK", LogLevel.WARNING);
+			SCR_ArsenalManagerComponent.GetArsenalLoadoutComponentsToCheck(SCR_PlayerArsenalLoadout.ARSENALLOADOUT_COMPONENTS_TO_CHECK);
+		}
+		
 		// Apply the loadout to the entity using the proper static method
 		// This handles all the inventory items, storages, and character data properly
 		if (!SCR_PlayerArsenalLoadout.ApplyLoadoutString(playerEntity, context))

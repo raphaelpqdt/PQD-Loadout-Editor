@@ -297,6 +297,15 @@ modded class SCR_BaseGameMode : BaseGameMode
 		
 		Print(string.Format("[PQD] Fallback: Spawned new entity, applying loadout data (size: %1 bytes)", loadoutData.Length()), LogLevel.NORMAL);
 		
+		// CRITICAL: Ensure ARSENALLOADOUT_COMPONENTS_TO_CHECK is initialized before calling ApplyLoadoutString
+		// This array tells the vanilla system which storage components to process for items
+		// Without it, only equipped items are applied, not inventory items inside storages!
+		if (!SCR_PlayerArsenalLoadout.ARSENALLOADOUT_COMPONENTS_TO_CHECK || SCR_PlayerArsenalLoadout.ARSENALLOADOUT_COMPONENTS_TO_CHECK.IsEmpty())
+		{
+			Print("[PQD] Fallback: Initializing ARSENALLOADOUT_COMPONENTS_TO_CHECK (was not initialized!)", LogLevel.WARNING);
+			SCR_ArsenalManagerComponent.GetArsenalLoadoutComponentsToCheck(SCR_PlayerArsenalLoadout.ARSENALLOADOUT_COMPONENTS_TO_CHECK);
+		}
+		
 		// Parse and apply loadout data
 		SCR_JsonLoadContext context = new SCR_JsonLoadContext();
 		if (!context.ImportFromString(loadoutData))
@@ -385,6 +394,13 @@ modded class SCR_BaseGameMode : BaseGameMode
 		{
 			Print("[PQD] Fallback: Failed to parse loadout data", LogLevel.ERROR);
 			return false;
+		}
+		
+		// CRITICAL: Ensure ARSENALLOADOUT_COMPONENTS_TO_CHECK is initialized
+		if (!SCR_PlayerArsenalLoadout.ARSENALLOADOUT_COMPONENTS_TO_CHECK || SCR_PlayerArsenalLoadout.ARSENALLOADOUT_COMPONENTS_TO_CHECK.IsEmpty())
+		{
+			Print("[PQD] DeprecatedFallback: Initializing ARSENALLOADOUT_COMPONENTS_TO_CHECK", LogLevel.WARNING);
+			SCR_ArsenalManagerComponent.GetArsenalLoadoutComponentsToCheck(SCR_PlayerArsenalLoadout.ARSENALLOADOUT_COMPONENTS_TO_CHECK);
 		}
 		
 		// Try to apply using the vanilla system
